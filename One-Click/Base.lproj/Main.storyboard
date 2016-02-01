@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="One_Click" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="One-Click Inspection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-2s-2yY" colorLabel="IBBuiltInLabel-Orange">
+                                <rect key="frame" x="154" y="28" width="293" height="32"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGR-rb-pZp">
+                                <rect key="frame" x="270" y="101" width="61" height="30"/>
+                                <state key="normal" title="Inspect!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sod-OT-LUn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-jE-2TC">
+                                <rect key="frame" x="110" y="232" width="399" height="21"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-pC-0Rh">
+                                <rect key="frame" x="235" y="170" width="130" height="30"/>
+                                <state key="normal" title="Search for Devices"/>
+                                <connections>
+                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Pw-qz-dnr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrx-2R-Xp0">
+                                <rect key="frame" x="59" y="348" width="508" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oz-fo-ID6">
+                                <rect key="frame" x="210" y="428" width="188" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.44586086106657408" green="0.70437102013666153" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="xOb-jE-2TC" secondAttribute="centerX" id="67c-qW-1Kc"/>
+                            <constraint firstItem="xOb-jE-2TC" firstAttribute="top" secondItem="BGR-rb-pZp" secondAttribute="bottom" constant="101" id="BNV-AP-XZJ"/>
+                            <constraint firstAttribute="centerX" secondItem="BGR-rb-pZp" secondAttribute="centerX" id="GUE-LD-Z5y"/>
+                            <constraint firstItem="3Qf-pC-0Rh" firstAttribute="top" secondItem="BGR-rb-pZp" secondAttribute="bottom" constant="39" id="R1i-TB-NFn"/>
+                            <constraint firstItem="jrx-2R-Xp0" firstAttribute="top" secondItem="xOb-jE-2TC" secondAttribute="bottom" constant="95" id="Tti-d7-Rbe"/>
+                            <constraint firstItem="jrx-2R-Xp0" firstAttribute="centerX" secondItem="xOb-jE-2TC" secondAttribute="centerX" id="V9d-gk-I0q"/>
+                            <constraint firstAttribute="centerX" secondItem="VJ9-2s-2yY" secondAttribute="centerX" id="jy0-Gi-N3N"/>
+                            <constraint firstItem="BGR-rb-pZp" firstAttribute="top" secondItem="VJ9-2s-2yY" secondAttribute="bottom" constant="41" id="ngh-g2-ccF"/>
+                            <constraint firstItem="jrx-2R-Xp0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xUN-HK-wzq"/>
+                            <constraint firstItem="3Qf-pC-0Rh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yiA-Pc-Sbo"/>
+                            <constraint firstItem="3Qf-pC-0Rh" firstAttribute="centerX" secondItem="BGR-rb-pZp" secondAttribute="centerX" id="ypQ-He-l9T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DeviceLabel" destination="8oz-fo-ID6" id="rwQ-TK-u9s"/>
+                        <outlet property="deviceLabel" destination="8oz-fo-ID6" id="F7b-zQ-vV2"/>
+                        <outlet property="messageField" destination="xOb-jE-2TC" id="ipJ-nH-Agy"/>
+                        <outlet property="statusLabel" destination="jrx-2R-Xp0" id="SNQ-2u-PWV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="338"/>
+        </scene>
+    </scenes>
+</document>
