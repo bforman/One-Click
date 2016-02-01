@@ -23,6 +23,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("bob")
         startUpCentralManager()
     }
     
