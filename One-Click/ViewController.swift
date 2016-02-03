@@ -9,15 +9,13 @@
 import UIKit
 import CoreBluetooth
 
-
-
 class ViewController: UIViewController, CBCentralManagerDelegate {
+
     
     var centralManager:CBCentralManager!
     var connectingPeripheral:CBPeripheral!
     var blueToothReady = false
     var status : String = ""
-    //var peripheralDesc : String = ""
 
     
     
@@ -42,23 +40,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
     {
         connectingPeripheral = peripheral
         print("peripheral found")
-        print(peripheral.description)
-        print(advertisementData)
-        //DeviceLabel.text = peripheral.description
-        centralManager.connectPeripheral(connectingPeripheral, options: nil)
+        print(peripheral.name)
+        if (connectingPeripheral.name == "BLE Shield") {
+            centralManager.stopScan()
+            centralManager.connectPeripheral(connectingPeripheral, options: nil)
+        }
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
         
         print("Connected to peripheral")
-    
-        //connectingPeripheral = peripheral
-        //centralManager.connectPeripheral(connectingPeripheral, options: nil)
         
         deviceLabel.text = peripheral.description
-        
-        
-        //peripheral.discoverServices(nil)
     }
     
     
@@ -86,7 +79,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         }
         
         if blueToothReady {
-            //print("in")
             discoverDevices()
         }
     }
@@ -104,7 +96,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
     
     @IBAction func buttonPressed(sender: UIButton) {
         messageField.text = "Message from Arduino will go here!"
-        //DeviceLabel.text = "Bob Saget"
     }
     @IBAction func searchPressed(sender: UIButton) {
         statusLabel.text = status
