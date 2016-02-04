@@ -41,7 +41,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         connectingPeripheral = peripheral
         print("peripheral found")
         print(peripheral.name)
-        if (connectingPeripheral.name == "BLE Shield") {
+        if (connectingPeripheral.name == "ble_led") {
             centralManager.stopScan()
             centralManager.connectPeripheral(connectingPeripheral, options: nil)
         }
@@ -51,7 +51,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         
         print("Connected to peripheral")
         
-        deviceLabel.text = peripheral.description
+        deviceLabel.text = "Connected to " + peripheral.name!
+        print(peripheral.description)
     }
     
     
@@ -62,7 +63,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
             status = "CoreBluetooth BLE hardware is powered off"
             
         case .PoweredOn:
-            status = "CoreBluetooth BLE hardware is powered on and ready"
+            status = "CoreBluetooth powered on and ready"
             blueToothReady = true;
             
         case .Resetting:
