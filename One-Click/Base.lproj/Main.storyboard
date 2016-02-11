@@ -39,8 +39,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-pC-0Rh">
-                                <rect key="frame" x="235" y="170" width="130" height="30"/>
-                                <state key="normal" title="Search for Devices"/>
+                                <rect key="frame" x="224" y="170" width="153" height="30"/>
+                                <state key="normal" title="Connect to BLE Shield"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Pw-qz-dnr"/>
                                 </connections>

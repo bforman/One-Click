@@ -9,18 +9,24 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController, CBCentralManagerDelegate {
+class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
 
     
     var centralManager:CBCentralManager!
     var connectingPeripheral:CBPeripheral!
     var blueToothReady = false
     var status : String = ""
+    var name : String = ""
+    /*var characteristics = [String: CBCharacteristic]()
+    let service = "713D0000-503E-4C75-BA94-3148F18D941E"
+    let TX = "713D0002-503E-4C75-BA94-3148F18D941E"*/
 
     
     
     override func viewDidLoad() {
+        print("View Loaded")
         super.viewDidLoad()
+        deviceLabel.text = "Searching for BLE Shield"
         startUpCentralManager()
     }
     
@@ -41,9 +47,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         connectingPeripheral = peripheral
         print("peripheral found")
         print(peripheral.name)
-        if (connectingPeripheral.name == "ble_led") {
+        if (connectingPeripheral.name == "BLE Shield") {
             centralManager.stopScan()
             centralManager.connectPeripheral(connectingPeripheral, options: nil)
+            //centralManager.stopScan()
         }
     }
     
@@ -51,9 +58,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         
         print("Connected to peripheral")
         
-        deviceLabel.text = "Connected to " + peripheral.name!
+        name = "Connected to " + peripheral.name!
         print(peripheral.description)
+        /*var one : Int = 1
+        let data = NSData(bytes: &one, length: sizeof(Int))
+        peripheral.writeValue(data, forCharacteristic: self.characteristics[TX]!, type: CBCharacteristicWriteType.WithResponse)*/
     }
+    /*
+    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+        print(peripheral.services)
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+        //print(peripheral.readValueForCharacteristic(CBService.)
+    }*/
     
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
@@ -98,10 +116,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         messageField.text = "Message from Arduino will go here!"
     }
     @IBAction func searchPressed(sender: UIButton) {
-        statusLabel.text = status
-        if connectingPeripheral != nil {
-            deviceLabel.text = connectingPeripheral.name
-        }
+        deviceLabel.text = name
     }
   
 }
