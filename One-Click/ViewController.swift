@@ -124,6 +124,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         print("Arduino updated tx")
+        print(characteristic.value)
     }
 
     override func didReceiveMemoryWarning() {
@@ -138,9 +139,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBAction func buttonPressed(sender: UIButton) {
         let datastring = NSString(data: tx.value!, encoding: NSASCIIStringEncoding) as! String
         print(datastring)
-        messageField.text = "Arduino Message: " + datastring
-
-
+        if (datastring == "X") {
+            messageField.text = "Arduino Tilted"
+        }
+        else if (datastring == "K") {
+            messageField.text = "Arduino Stationary"
+        }
     }
 
 
