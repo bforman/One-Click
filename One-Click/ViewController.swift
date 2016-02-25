@@ -74,12 +74,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         for service in connectingPeripheral.services! {
             print(service.UUID)
             if service.UUID.UUIDString == "713D0000-503E-4C75-BA94-3148F18D941E" {
-                //let rx:[CBUUID] = [CBUUID(string: RX)]
-                //let tx:[CBUUID] = [CBUUID(string: TX)]
                 connectingPeripheral.discoverCharacteristics(nil, forService: service)
-                //connectingPeripheral.discoverCharacteristics(rx, forService: service)
-                //connectingPeripheral.discoverCharacteristics(tx, forService: service)
-                //print("found RX characteristic")
             }
         }
     }
@@ -94,17 +89,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         connectingPeripheral.writeValue(data!, forCharacteristic: rx, type: CBCharacteristicWriteType.WithoutResponse)
         print("-------------------------------------")
         print("written")
-        /*for characteristic in service.characteristics! as [CBCharacteristic]{
-            switch characteristic.UUID.UUIDString{
-                case "713D0002-503E-4C75-BA94-3148F18D941E":
-                    connectingPeripheral.readValueForCharacteristic(characteristic)
-                    //print(characteristic.value)
-                default: break
-            }
-        }*/
         let yes : Bool = true
         connectingPeripheral.setNotifyValue(yes, forCharacteristic: tx)
-        connectingPeripheral.readValueForCharacteristic(tx)
 
     }
     
@@ -137,11 +123,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-        //peripheral.readValueForCharacteristic(self.characteristic1)
-        //print(self.characteristic1.value)
-        print(characteristic.description)
         print("Arduino updated tx")
-        print(characteristic.value)
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,7 +136,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBOutlet weak var deviceLabel: UILabel!
     
     @IBAction func buttonPressed(sender: UIButton) {
-        //connectingPeripheral.readValueForCharacteristic(characteristic1)
+        let datastring = NSString(data: tx.value!, encoding: NSASCIIStringEncoding) as! String
+        print(datastring)
+        messageField.text = "Arduino Message: " + datastring
+
 
     }
 
